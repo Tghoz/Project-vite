@@ -50,14 +50,15 @@ function Clients() {
       <div className="table-data">
         <div className="order">
           <div className="head">
-            <h3>Recent Orders</h3>
+            <h3>Usuarios</h3>
             <i className="bx bx-search"></i>
             <i className="bx bx-filter"></i>
           </div>
           <table>
             <thead>
               <tr>
-                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Cédula </th>
                 <th>Fecha De Registro</th>
                 <th>Status</th>
               </tr>
@@ -65,8 +66,9 @@ function Clients() {
             <tbody>
               <tr>
                 <td>
-                  <p>No</p>
+                  <p>juan pepe</p>
                 </td>
+                <td>123124</td>
                 <td>01-10-2021</td>
                 <td>
                   <span className="status completed">Completed</span>
@@ -74,8 +76,9 @@ function Clients() {
               </tr>
               <tr>
                 <td>
-                  <p>Estudiar</p>
+                  <p>juana pepe</p>
                 </td>
+                <td>67675677</td>
                 <td>01-10-2021</td>
                 <td>
                   <span className="status pending">Pending</span>
@@ -83,8 +86,9 @@ function Clients() {
               </tr>
               <tr>
                 <td>
-                  <p>Infor</p>
+                  <p>lola suarez</p>
                 </td>
+                <td>4453453</td>
                 <td>01-10-2021</td>
                 <td>
                   <span className="status process">Process</span>
@@ -92,8 +96,9 @@ function Clients() {
               </tr>
               <tr>
                 <td>
-                  <p>Matica</p>
+                  <p>simon rodriguez</p>
                 </td>
+                <td>232323</td>
                 <td>01-10-2021</td>
                 <td>
                   <span className="status pending">Pending</span>
@@ -101,8 +106,9 @@ function Clients() {
               </tr>
               <tr>
                 <td>
-                  <p>PIPIPIPI</p>
+                  <p>diego maradona</p>
                 </td>
+                <td>12323232</td>
                 <td>01-10-2021</td>
                 <td>
                   <span className="status completed">Completed</span>
