@@ -24,24 +24,43 @@ function Siderbar() {
   }, []);
 
   return (
-    <section id="sidebar" className="p-0">
-      <a href="#" className="flex items-center justify-center my-10 gap-3  ">
+    <section id="sidebar">
+      <a href={"/"} className="brand  gap-2">
         <SiArkecosystem size={50} />
-        <span className="text-3xl font-mono">AdminHub</span>
+        <span className="text-6xl font-mono">AdminHub</span>
       </a>
       <ul className="side-menu top">
-        <li className="active">
-          <a href="#" className="flex items-center justify-center gap-3">
-            <BsPeopleFill />
-            <span className="text">Clients</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" className="flex items-center justify-center gap-3">
-            <SiGoogleanalytics />
-            <span className="text">Analysis</span>
-          </a>
-        </li>
+        {location.pathname == "/" ? (
+          <li className="active">
+            <a href={"/"} className="flex items-center justify-center gap-3">
+              <BsPeopleFill />
+              <span className="text">Clients</span>
+            </a>
+          </li>
+        ) : (
+          <li>
+            <a href={"/"} className="flex items-center justify-center gap-3">
+              <BsPeopleFill />
+              <span className="text">Clients</span>
+            </a>
+          </li>
+        )}
+
+        {location.pathname == "/hello" ? (
+          <li className="active">
+            <a href="/hello" className="flex items-center justify-center gap-3">
+              <SiGoogleanalytics />
+              <span className="text">Analysis</span>
+            </a>
+          </li>
+        ) : (
+          <li>
+            <a href="/hello" className="flex items-center justify-center gap-3">
+              <SiGoogleanalytics />
+              <span className="text">Analysis</span>
+            </a>
+          </li>
+        )}
       </ul>
     </section>
   );

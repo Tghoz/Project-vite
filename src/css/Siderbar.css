@@ -21,15 +21,15 @@
 }
 
 #sidebar .brand {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 700;
     height: 56px;
     display: flex;
     align-items: center;
     color: var(--blue);
     position: sticky;
-    top: 0;
-    left: 0;
+    top: 30px;
+    margin-left: 30px;
     background: var(--light);
     z-index: 500;
     padding-bottom: 20px;
