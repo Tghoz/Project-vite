@@ -1,4 +1,8 @@
 import "../css/Pages.css";
+import { VscArrowRight } from "react-icons/vsc";
+import { BsCloudArrowDownFill } from "react-icons/bs";
+import { HiUserGroup } from "react-icons/hi";
+import { GrUserExpert } from "react-icons/gr";
 
 function Clients() {
   return (
@@ -8,44 +12,37 @@ function Clients() {
           <h1>Clientes</h1>
           <ul className="breadcrumb">
             <li>
-              <a href="#">Dashboard</a>
+              <a href="#">Dashboard </a>
             </li>
-            <li>
-              <i className="bx bx-chevron-right"></i>
+            <li className="arrow-icon">
+            <VscArrowRight />
             </li>
             <li>
               <a className="active" href="#">
-                clientes
+                Clientes
               </a>
             </li>
           </ul>
         </div>
         <a href="#" className="btn-download">
-          <i className="bx bxs-cloud-download"></i>
+        <BsCloudArrowDownFill />
           <span className="text">Download PDF</span>
         </a>
       </div>
 
       <ul className="box-info">
         <li>
-          <i className="bx bxs-calendar-check"></i>
+          <i className="bx"><GrUserExpert/></i>
           <span className="text">
             <h3>1020</h3>
-            <p>New Order</p>
+            <p>Registrados hoy</p>
           </span>
         </li>
         <li>
-          <i className="bx bxs-group"></i>
+          <i className="bx"><HiUserGroup/></i>
           <span className="text">
             <h3>2834</h3>
-            <p>Visitors</p>
-          </span>
-        </li>
-        <li>
-          <i className="bx bxs-dollar-circle"></i>
-          <span className="text">
-            <h3>$2543</h3>
-            <p>Total Sales</p>
+            <p>Usuarios registrados</p>
           </span>
         </li>
       </ul>
@@ -60,16 +57,15 @@ function Clients() {
           <table>
             <thead>
               <tr>
-                <th>User</th>
-                <th>Date Order</th>
+                <th>Usuario</th>
+                <th>Fecha De Registro</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  <img src="img/people.png" />
-                  <p>John Doe</p>
+                  <p>No</p>
                 </td>
                 <td>01-10-2021</td>
                 <td>
@@ -78,8 +74,7 @@ function Clients() {
               </tr>
               <tr>
                 <td>
-                  <img src="img/people.png" />
-                  <p>John Doe</p>
+                  <p>Estudiar</p>
                 </td>
                 <td>01-10-2021</td>
                 <td>
@@ -88,8 +83,7 @@ function Clients() {
               </tr>
               <tr>
                 <td>
-                  <img src="img/people.png" />
-                  <p>John Doe</p>
+                  <p>Infor</p>
                 </td>
                 <td>01-10-2021</td>
                 <td>
@@ -98,8 +92,7 @@ function Clients() {
               </tr>
               <tr>
                 <td>
-                  <img src="img/people.png" />
-                  <p>John Doe</p>
+                  <p>Matica</p>
                 </td>
                 <td>01-10-2021</td>
                 <td>
@@ -108,8 +101,7 @@ function Clients() {
               </tr>
               <tr>
                 <td>
-                  <img src="img/people.png" />
-                  <p>John Doe</p>
+                  <p>PIPIPIPI</p>
                 </td>
                 <td>01-10-2021</td>
                 <td>
@@ -118,35 +110,6 @@ function Clients() {
               </tr>
             </tbody>
           </table>
-        </div>
-        <div className="todo">
-          <div className="head">
-            <h3>Todos</h3>
-            <i className="bx bx-plus"></i>
-            <i className="bx bx-filter"></i>
-          </div>
-          <ul className="todo-list">
-            <li className="completed">
-              <p>Todo List</p>
-              <i className="bx bx-dots-vertical-rounded"></i>
-            </li>
-            <li className="completed">
-              <p>Todo List</p>
-              <i className="bx bx-dots-vertical-rounded"></i>
-            </li>
-            <li className="not-completed">
-              <p>Todo List</p>
-              <i className="bx bx-dots-vertical-rounded"></i>
-            </li>
-            <li className="completed">
-              <p>Todo List</p>
-              <i className="bx bx-dots-vertical-rounded"></i>
-            </li>
-            <li className="not-completed">
-              <p>Todo List</p>
-              <i className="bx bx-dots-vertical-rounded"></i>
-            </li>
-          </ul>
         </div>
       </div>
     </main>

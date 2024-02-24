@@ -109,9 +109,6 @@
 }
 
 
-
-
-
 #content main .table-data {
     display: flex;
     flex-wrap: wrap;
@@ -204,39 +201,15 @@
     background: var(--orange);
 }
 
-
-#content main .table-data .todo {
-    flex-grow: 1;
-    flex-basis: 300px;
+arrow-icon {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+  height: 100%; 
 }
 
-#content main .table-data .todo .todo-list {
-    width: 100%;
-}
-
-#content main .table-data .todo .todo-list li {
-    width: 100%;
-    margin-bottom: 16px;
-    background: var(--grey);
-    border-radius: 10px;
-    padding: 14px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#content main .table-data .todo .todo-list li .bx {
-    cursor: pointer;
-}
-
-#content main .table-data .todo .todo-list li.completed {
-    border-left: 10px solid var(--blue);
-}
-
-#content main .table-data .todo .todo-list li.not-completed {
-    border-left: 10px solid var(--orange);
-}
-
-#content main .table-data .todo .todo-list li:last-child {
-    margin-bottom: 0;
-}
+#content main .table-data .order {
+    flex-grow:  1;
+    flex-basis:  500px;
+    max-height:  400px; /* Ajusta este valor según tus necesidades */
+    overflow-y: auto;}
