@@ -1,9 +1,28 @@
 import "../css/Siderbar.css";
+import { useEffect } from "react";
+
 import { BsPeopleFill } from "react-icons/bs";
 import { SiGoogleanalytics } from "react-icons/si";
 import { SiArkecosystem } from "react-icons/si";
 
 function Siderbar() {
+  useEffect(() => {
+    const allSideMenu = document.querySelectorAll(
+      "#sidebar .side-menu.top li a"
+    );
+
+    allSideMenu.forEach((item) => {
+      const li = item.parentElement;
+
+      item.addEventListener("click", function () {
+        allSideMenu.forEach((i) => {
+          i.parentElement.classList.remove("active");
+        });
+        li.classList.add("active");
+      });
+    });
+  }, []);
+
   return (
     <section id="sidebar" className="p-0">
       <a href="#" className="flex items-center justify-center my-10 gap-3  ">
