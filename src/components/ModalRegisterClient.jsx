@@ -1,3 +1,4 @@
+
 import React from "react";
 import { FaUserPlus } from "react-icons/fa";
 import {
@@ -8,6 +9,7 @@ import {
   ModalFooter,
   Button,
   useDisclosure,
+  Input,
 } from "@nextui-org/react";
 
 export default function App() {
@@ -21,17 +23,28 @@ export default function App() {
     onOpen();
   };
 
+  const handleSubmit = () => {
+    onClose();
+  };
+
   return (
-    <>
+
+
       <div className="flex flex-wrap ">
+
+      <div>
+
         {backdrops.map((b) => (
           <Button
             key={b}
             variant="flat"
             color="warning"
             onPress={() => handleOpen(b)}
+
             className="capitalize">
             <FaUserPlus size={25} />
+
+      
             Registrar Cliente
           </Button>
         ))}
@@ -40,41 +53,40 @@ export default function App() {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
+              <ModalHeader>
+                <h2>Registro de Cliente</h2>
               </ModalHeader>
               <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat
-                  consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                  incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                  aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                  eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
+                <form>
+                  <Input label="Nombre" />
+                  <Input label="Apellido" />
+                  <Input label="Documento de Identidad" />
+                  <Input type="email" label="Correo Electrónico" />
+                  <Input label="Teléfono" />
+                  <Input label="Dirección" />
+                  <div>
+                    <label htmlFor="gender">Género</label>
+                    <select id="gender" name="gender">
+                      <option value="masculino">Masculino</option>
+                      <option value="femenino">Femenino</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
+                  <Input type="date" label="Fecha de Nacimiento" />
+                </form>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
-                  Close
+                  Cerrar
                 </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
+                <Button color="primary" onPress={handleSubmit}>
+                  Registrar
                 </Button>
               </ModalFooter>
             </>
           )}
         </ModalContent>
       </Modal>
-    </>
+    
   );
 }
