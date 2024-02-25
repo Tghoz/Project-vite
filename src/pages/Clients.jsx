@@ -26,6 +26,7 @@ function Clients() {
             </li>
           </ul>
         </div>
+
         <ModalRegisterClient />
       </div>
 
@@ -53,7 +54,7 @@ function Clients() {
       <div className="table-data">
         <div className="order">
           <div className="head">
-            <h3>Usuarios</h3>
+            <h3>Clientes Registrados</h3>
             <i className="bx bx-search"></i>
             <i className="bx bx-filter"></i>
           </div>

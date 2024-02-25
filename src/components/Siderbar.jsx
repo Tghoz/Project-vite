@@ -46,16 +46,20 @@ function Siderbar() {
           </li>
         )}
 
-        {location.pathname == "/hello" ? (
+        {location.pathname == "/analisis" ? (
           <li className="active">
-            <a href="/hello" className="flex items-center justify-center gap-3">
+            <a
+              href="/analisis"
+              className="flex items-center justify-center gap-3">
               <SiGoogleanalytics />
               <span className="text">Analysis</span>
             </a>
           </li>
         ) : (
           <li>
-            <a href="/hello" className="flex items-center justify-center gap-3">
+            <a
+              href="/analisis"
+              className="flex items-center justify-center gap-3">
               <SiGoogleanalytics />
               <span className="text">Analysis</span>
             </a>

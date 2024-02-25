@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import Siderbar from "./components/Siderbar";
 
 import Clients from "../src/pages/Clients.jsx";
-import Hola from "./pages/Hola";
+import Analisis from "./pages/Analisis";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +12,8 @@ const router = createBrowserRouter([
     element: <Clients />,
   },
   {
-    path: "/hello",
-    element: <Hola />,
+    path: "/analisis",
+    element: <Analisis />,
   },
 ]);
 

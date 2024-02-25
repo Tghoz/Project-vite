@@ -1,4 +1,5 @@
 import React from "react";
+import { FaUserPlus } from "react-icons/fa";
 import {
   Modal,
   ModalContent,
@@ -22,7 +23,7 @@ export default function App() {
 
   return (
     <>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap ">
         {backdrops.map((b) => (
           <Button
             key={b}
@@ -30,6 +31,7 @@ export default function App() {
             color="warning"
             onPress={() => handleOpen(b)}
             className="capitalize">
+            <FaUserPlus size={25} />
             Registrar Cliente
           </Button>
         ))}
