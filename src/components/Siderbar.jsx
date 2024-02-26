@@ -3,7 +3,6 @@ import { useEffect } from "react";
 
 import { BsPeopleFill } from "react-icons/bs";
 import { SiGoogleanalytics } from "react-icons/si";
-import { SiArkecosystem } from "react-icons/si";
 
 function Siderbar() {
   useEffect(() => {
@@ -25,10 +24,10 @@ function Siderbar() {
 
   return (
     <section id="sidebar">
-      <a href={"/"} className="brand  gap-2">
-        <SiArkecosystem size={50} />
-        <span className="text-6xl font-mono">AdminHub</span>
-      </a>
+      <a className="brand gap-2">
+    <img src="/icon.png" alt="Icono" width={50} height={50} />
+    <span className="text-6xl font-mono">AdminHub</span>
+</a>
       <ul className="side-menu top">
         {location.pathname == "/" ? (
           <li className="active">

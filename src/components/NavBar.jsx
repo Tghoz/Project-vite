@@ -6,9 +6,6 @@ function NavBar() {
   return (
     <nav>
       <MdMenuOpen className="cursor-pointer" size={35} />
-      <a href="#" className="nav-link">
-        Categories
-      </a>
       <form action="#">
         <div className="form-input">
           <input type="search" placeholder="Search..." />
