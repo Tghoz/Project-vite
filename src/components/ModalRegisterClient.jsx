@@ -96,6 +96,9 @@ export default function App() {
                       description="No tienes que ser espesifico si no quieres"
                     />
                   </div>
+                  <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+                    <Input type="Email" label="Correo Electronico" />
+                  </div>
                 </form>
               </ModalBody>
               <ModalFooter>
