@@ -1,5 +1,4 @@
 import { FaUserPlus } from "react-icons/fa";
-
 import {
   Modal,
   ModalContent,
@@ -9,23 +8,20 @@ import {
   Button,
   useDisclosure,
 } from "@nextui-org/react";
-
 import { Input } from "@nextui-org/react";
+import { useState } from "react"; // Importa useState
 
 export default function App() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [tipoDocumento, setTipoDocumento] = useState("Cédula");
 
   return (
     <div className="">
-      <Button
-        onPress={onOpen}
-        variant="flat"
-        className="capitalize"
-        color="warning">
+      <Button onPress={onOpen} variant="flat" className="capitalize" color="warning">
         <FaUserPlus size={20} />
         Registrar Cliente
       </Button>
-      <Modal size={"2xl"} isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal size={"2xl"} isOpen={isOpen} onClose={onClose}>
         <ModalContent>
           {(onClose) => (
             <>
@@ -95,9 +91,6 @@ export default function App() {
                       label="Direccion"
                       description="No tienes que ser espesifico si no quieres"
                     />
-                  </div>
-                  <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                    <Input type="Email" label="Correo Electronico" />
                   </div>
                 </form>
               </ModalBody>
