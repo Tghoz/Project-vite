@@ -9,15 +9,18 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
-import { useState } from "react"; // Importa useState
+import { Select, SelectItem } from "@nextui-org/react";
 
 export default function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [tipoDocumento, setTipoDocumento] = useState("Cédula");
 
   return (
     <div className="">
-      <Button onPress={onOpen} variant="flat" className="capitalize" color="warning">
+      <Button
+        onPress={onOpen}
+        variant="flat"
+        className="capitalize"
+        color="warning">
         <FaUserPlus size={20} />
         Registrar Cliente
       </Button>
@@ -37,6 +40,10 @@ export default function App() {
                       label="Apellido"
                       className="max-w-xs"
                     />
+                    <Select className="max-w-xs" label="Genero">
+                      <SelectItem>Femenino</SelectItem>
+                      <SelectItem>Masculino</SelectItem>
+                    </Select>
                   </div>
                   <div className="flex gap-2">
                     <Input
@@ -52,9 +59,8 @@ export default function App() {
                             className="outline-none border-0 bg-transparent text-default-400 text-small"
                             id="currency"
                             name="currency">
-                            <option>Natural</option>
-                            <option>Juridico</option>
-                            <option>Gubernametal</option>
+                            <option>RIF</option>
+                            <option>C.I</option>
                           </select>
                         </div>
                       }
