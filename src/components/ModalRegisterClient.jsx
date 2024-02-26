@@ -83,7 +83,7 @@ export default function App() {
               <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                 <Input
                   type="texto"
-                  label="Direccion"
+                  label="Direcci"
                   description="Zona de Residencia actual"
                 />
               </div>
