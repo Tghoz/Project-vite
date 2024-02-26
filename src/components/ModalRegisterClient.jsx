@@ -30,7 +30,7 @@ export default function App() {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                Registo a Clienete
+                Registro de Cliente
               </ModalHeader>
               <ModalBody>
                 <form action="" method="post" className="flex flex-col gap-4">
@@ -93,13 +93,13 @@ export default function App() {
                     <Input type="date" />
                   </div>
                   <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                    <Input type="texto" label="Email" />
+                    <Input type="texto" label="Correo electrónico" />
                   </div>
                   <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                     <Input
                       type="texto"
-                      label="Direccion"
-                      description="No tienes que ser espesifico si no quieres"
+                      label="Dirección"
+                      description="Zona de Residencia actual"
                     />
                   </div>
                 </form>
