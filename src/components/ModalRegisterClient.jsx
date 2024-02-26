@@ -9,7 +9,7 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
-import { useState } from "react"; // Importa useState
+import { useState } from "react"; 
 
 export default function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -83,7 +83,7 @@ export default function App() {
               <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                 <Input
                   type="texto"
-                  label="Dirección"
+                  label="Direccion"
                   description="Zona de Residencia actual"
                 />
               </div>
