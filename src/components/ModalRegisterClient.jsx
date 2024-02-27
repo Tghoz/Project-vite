@@ -96,7 +96,7 @@ export default function App() {
                     <Input type="date"{...register('fecha de nacimiento')} />
                   </div>
                   <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                    <Input type="texto" label="Correo electrónico" {...register('correo')} />
+                    <Input type="text" label="Correo electrónico" {...register('email')} />
                   </div>
                   <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                     <Input
