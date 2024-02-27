@@ -10,11 +10,11 @@ function Chart() {
       <div>
         <Bar
           data={{
-            labels: ["a", "b", "c"],
+            labels: ["a", "b", "c","d"],
             datasets: [
               {
                 label: "revenue",
-                data: [200, 300, 400],
+                data: [10, 0, 400],
               },
             ],
           }}

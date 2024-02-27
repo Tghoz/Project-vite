@@ -28,8 +28,8 @@ export default function App() {
           onClick={onOpen}
           variant="flat"
           className="capitalize"
-          color="warning" >
-          <FaUserPlus size={20} />
+          color="default" >
+          <FaUserPlus size={30} />
           Registrar Cliente
         </Button>
         <Modal size={"2xl"} isOpen={isOpen} onClose={onClose}>

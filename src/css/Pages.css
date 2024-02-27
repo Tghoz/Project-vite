@@ -18,7 +18,7 @@
     font-size: 36px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: black;
+    color: black    ;
     
 }
 
@@ -87,13 +87,8 @@
 }
 
 #content main .box-info li:nth-child(2) .bx {
-    background: var(--light-yellow);
-    color: var(--yellow);
-}
-
-#content main .box-info li:nth-child(3) .bx {
-    background: var(--light-orange);
-    color: var(--orange);
+    background: var(--light-blue);
+    color: var(--blue);
 }
 
 #content main .box-info li .text h3 {

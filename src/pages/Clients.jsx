@@ -1,5 +1,5 @@
 import ModalRegisterClient from "../components/ModalRegisterClient";
-
+import ModalUser from "../components/ModalUser";
 import "../css/Pages.css";
 import { VscArrowRight } from "react-icons/vsc";
 
@@ -50,7 +50,6 @@ function Clients() {
           </span>
         </li>
       </ul>
-
       <div className="table-data">
         <div className="order">
           <div className="head">
@@ -70,52 +69,12 @@ function Clients() {
             <tbody>
               <tr>
                 <td>
-                  <p>juan pepe</p>
-                </td>
-                <td>123124</td>
-                <td>01-10-2021</td>
-                <td>
-                  <span className="status completed">Completed</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>juana pepe</p>
-                </td>
-                <td>67675677</td>
-                <td>01-10-2021</td>
-                <td>
-                  <span className="status pending">Pending</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>lola suarez</p>
-                </td>
-                <td>4453453</td>
-                <td>01-10-2021</td>
-                <td>
-                  <span className="status process">Process</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>simon rodriguez</p>
-                </td>
-                <td>232323</td>
-                <td>01-10-2021</td>
-                <td>
-                  <span className="status pending">Pending</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
                   <p>diego maradona</p>
                 </td>
                 <td>12323232</td>
                 <td>01-10-2021</td>
                 <td>
-                  <span className="status completed">Completed</span>
+                <ModalUser/>
                 </td>
               </tr>
             </tbody>
