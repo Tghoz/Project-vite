@@ -2,6 +2,8 @@ import ModalRegisterClient from "../components/ModalRegisterClient";
 import ModalUser from "../components/ModalUser";
 import "../css/Pages.css";
 import { VscArrowRight } from "react-icons/vsc";
+import Modaleft from "../components/Modaleft";
+
 
 import { HiUserGroup } from "react-icons/hi";
 import { GrUserExpert } from "react-icons/gr";

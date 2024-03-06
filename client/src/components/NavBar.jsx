@@ -8,7 +8,7 @@ function NavBar() {
       <MdMenuOpen className="cursor-pointer" size={35} />
       <form action="#">
         <div className="form-input">
-          <input type="search" placeholder="Search..." />
+          <input type="search" placeholder="Buscar..." />
           <button type="submit" className="search-btn">
             <IoMdSearch />
           </button>

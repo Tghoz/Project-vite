@@ -25,9 +25,9 @@ function Siderbar() {
   return (
     <section id="sidebar">
       <a className="brand gap-2">
-        <img src="/icon.png" alt="Icono" width={50} height={50} />
-        <span className="text-6xl font-mono">TourPlus</span>
-      </a>
+    <img src="/icon.png" alt="Icono" width={50} height={50} />
+    <span className="text-6xl font-mono">TourPlus</span>
+</a>
       <ul className="side-menu top">
         {location.pathname == "/" ? (
           <li className="active">
@@ -40,7 +40,7 @@ function Siderbar() {
           <li>
             <a href={"/"} className="flex items-center justify-center gap-3">
               <BsPeopleFill />
-              <span className="text">Clientes</span>
+              <span className="text">Clients</span>
             </a>
           </li>
         )}
@@ -51,7 +51,7 @@ function Siderbar() {
               href="/analisis"
               className="flex items-center justify-center gap-3">
               <SiGoogleanalytics />
-              <span className="text">Análisis</span>
+              <span className="text">Analysis</span>
             </a>
           </li>
         ) : (
