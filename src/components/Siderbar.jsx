@@ -40,7 +40,7 @@ function Siderbar() {
           <li>
             <a href={"/"} className="flex items-center justify-center gap-3">
               <BsPeopleFill />
-              <span className="text">Clientes</span>
+              <span className="text">Clients</span>
             </a>
           </li>
         )}
@@ -51,7 +51,7 @@ function Siderbar() {
               href="/analisis"
               className="flex items-center justify-center gap-3">
               <SiGoogleanalytics />
-              <span className="text">Análisis</span>
+              <span className="text">Analysis</span>
             </a>
           </li>
         ) : (

@@ -207,4 +207,17 @@ arrow-icon {
     max-height:  400px;
     overflow-y: auto;}
 
- 
+    .center-modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .modal-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+        margin-left:-80px ;  
+        
+      }
