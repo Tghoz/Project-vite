@@ -1,5 +1,9 @@
 import { IoMdAddCircle } from "react-icons/io";
 import { useForm } from "react-hook-form";
+import Botoneditar from "../components/Botoneditar";
+import Botonborrar from "../components/Botonborrar";
+
+
 import "../css/Pages.css";
 
 import {
@@ -39,6 +43,8 @@ export default function App() {
                 <ModalHeader className="flex flex-col gap-1">
                   Registro de Cliente
                 </ModalHeader>
+                <Botoneditar/>
+                      <Botonborrar/>
                 <ModalBody>
                   <form
                     onSubmit={handleSubmit(onSubmit)}
