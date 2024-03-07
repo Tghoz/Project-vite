@@ -8,9 +8,9 @@ export const userSchema = z.object({
 
     genero: z.enum([ "masculino","femenino"]),
 
-    documentoIdentidad: z.string().min(8).regex(new RegExp(/^[0-9]+$/)),
+    documento_identidad: z.string().min(7).regex(new RegExp(/^[0-9]+$/)),
 
-    numero: z.string().min(11).max(11).regex(new RegExp(/^[0-9]+$/)),
+    contacto: z.string().min(11).max(11).regex(new RegExp(/^[0-9]+$/)),
 
     // fechaNacimiento: z.date().min(new Date("2005-01-01")),
 

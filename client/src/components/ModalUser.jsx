@@ -1,5 +1,4 @@
 import { FaUserGear } from "react-icons/fa6";
-import { useForm } from "react-hook-form";
 import {
   Modal,
   ModalContent,
@@ -13,20 +12,14 @@ import {
 export default function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const Formulario = () => {
-    const { handleSubmit } = useForm();
-
-    const onSubmit = (data) => {
-      console.log(data);
-    };
-
+  
     return (
       <div className="">
         <Button
           onClick={onOpen}
           variant="flat"
           className="capitalize"
-          color="success" >
+          color="success">
           <FaUserGear size={20} />
           wasa
         </Button>
@@ -37,28 +30,21 @@ export default function App() {
                 <ModalHeader className="flex flex-col gap-1">
                   Registro de Cliente
                 </ModalHeader>
-                <ModalBody>
-                  <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    action=""
-                    method="post"
-                    className="flex flex-col gap-4" >
-                    <ModalFooter>
-                      <Button color="danger" variant="light" onClick={onClose}>
-                        Cancelar
-                      </Button>
-                      <Button color="primary" type="submit">
-                        Guardar
-                      </Button>
-                    </ModalFooter>
-                  </form>
-                </ModalBody>
+                <ModalBody></ModalBody>
+
+                <ModalFooter>
+                  <Button color="danger" variant="light" onClick={onClose}>
+                    Cancelar
+                  </Button>
+                  <Button color="primary" type="submit">
+                    Guardar
+                  </Button>
+                </ModalFooter>
               </>
             )}
           </ModalContent>
         </Modal>
       </div>
     );
-  };
-  return <Formulario />;
-}
+  }
+

@@ -93,14 +93,6 @@ function Clients() {
                   </td>
                 </tr>
               ))}
-              {/*                 
-                <td>diego Maladroga</td>
-                <td>RIF</td>
-                <td>909090123</td>
-                <span>Completed</span>
-                <td>
-              
-                </td> */}
             </tbody>
           </table>
         </div>
