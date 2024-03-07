@@ -1,4 +1,4 @@
-import { FaUserPlus } from "react-icons/fa";
+import { RiFileAddFill } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import {
   Modal,
@@ -28,8 +28,8 @@ export default function App() {
         variant="flat"
         className="capitalize"
         color="default">
-        <FaUserPlus size={30} />
-        Registrar Cliente
+        <RiFileAddFill size={30} />
+        Registrar Propuestas
       </Button>
       <Modal size={"2xl"} isOpen={isOpen} onClose={onClose}>
         <ModalContent>
