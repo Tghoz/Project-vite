@@ -20,14 +20,16 @@ function Siderbar() {
         li.classList.add("active");
       });
     });
+
+    
   }, []);
 
   return (
     <section id="sidebar">
       <a className="brand gap-2">
-    <img src="/icon.png" alt="Icono" width={50} height={50} />
-    <span className="text-6xl font-mono">TourPlus</span>
-</a>
+        <img src="/icon.png" alt="Icono" width={50} height={50} />
+        <span className="text-6xl font-mono">TourPlus</span>
+      </a>
       <ul className="side-menu top">
         {location.pathname == "/" ? (
           <li className="active">
