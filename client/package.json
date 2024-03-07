@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -13,6 +12,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@nextui-org/react": "^2.2.9",
+    "axios": "^1.6.7",
     "chart.js": "^4.4.1",
     "framer-motion": "^11.0.6",
     "localforage": "^1.10.0",

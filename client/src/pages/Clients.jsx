@@ -2,13 +2,24 @@ import ModalRegisterClient from "../components/ModalRegisterClient";
 import ModalUser from "../components/ModalUser";
 import "../css/Pages.css";
 import { VscArrowRight } from "react-icons/vsc";
-import Modaleft from "../components/Modaleft";
-
-
 import { HiUserGroup } from "react-icons/hi";
 import { GrUserExpert } from "react-icons/gr";
+import { useEffect, useState } from "react";
+import { getClient } from "../api/client.api";
 
 function Clients() {
+  const [clients, setClient] = useState([]);
+
+  useEffect(() => {
+    async function loadClient() {
+      const response = await getClient();
+      setClient(response.data);
+      return response;
+    }
+
+    loadClient();
+  }, []);
+
   return (
     <main>
       <div className="head-title">
@@ -28,7 +39,6 @@ function Clients() {
             </li>
           </ul>
         </div>
-
         <ModalRegisterClient />
       </div>
 
@@ -38,7 +48,7 @@ function Clients() {
             <GrUserExpert />
           </i>
           <span className="text">
-            <h3>1020</h3>
+            <h3>{}</h3>
             <p>Registrados hoy</p>
           </span>
         </li>
@@ -47,7 +57,7 @@ function Clients() {
             <HiUserGroup />
           </i>
           <span className="text">
-            <h3>2834</h3>
+            <h3>{clients.length}</h3>
             <p>Usuarios registrados</p>
           </span>
         </li>
@@ -59,26 +69,38 @@ function Clients() {
             <i className="bx bx-search"></i>
             <i className="bx bx-filter"></i>
           </div>
+
           <table>
             <thead>
-              <tr>
+              <tr className="text-center">
                 <th>Nombre</th>
-                <th>Cédula </th>
-                <th>Fecha De Registro</th>
-                <th>Status</th>
+                <th>Tipo</th>
+                <th>Documento identidad</th>
+                <th>Estatus</th>
+                <th>Modificar</th>
               </tr>
             </thead>
+
             <tbody>
-              <tr>
+              {clients.map((client) => (
+                <tr key={client.id_cliente}>
+                  <td> {client.nombre}</td>
+                  <td> {client.tipo_cliente}</td>
+                  <td> {client.documento_identidad}</td>
+                  <td> {client.direccion}</td>
+                  <td>
+                    <ModalUser />
+                  </td>
+                </tr>
+              ))}
+              {/*                 
+                <td>diego Maladroga</td>
+                <td>RIF</td>
+                <td>909090123</td>
+                <span>Completed</span>
                 <td>
-                  <p>diego maradona</p>
-                </td>
-                <td>12323232</td>
-                <td>01-10-2021</td>
-                <td>
-                <ModalUser/>
-                </td>
-              </tr>
+              
+                </td> */}
             </tbody>
           </table>
         </div>

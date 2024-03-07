@@ -20,6 +20,8 @@ function Siderbar() {
         li.classList.add("active");
       });
     });
+
+    
   }, []);
 
   return (
