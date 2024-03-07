@@ -1,12 +1,17 @@
   import "../css/Pages.css";
   import Chart from "../components/Chart";
-  import Modalgrafico from "../components/Modalgrafico";
+  import Modalright from "../components/Modalright";
   import Modaleft from "../components/Modaleft";
+  import Modalpropuesta from "../components/Modalpropuesta";
   import Botonpdf from "../components/Botonpdf";
 
   function Analisis() {
     return (
+      
       <main>
+        <div>
+       <Modalpropuesta/>
+       </div>
         <ul className="box-info">
           <li>
             <i>
@@ -14,7 +19,6 @@
             <span className="text"> 
               <p>Facebook</p>
               <img src="/facebook.png" alt="Icono" width={50} height={60} />
-
             </span>
             <Chart />
           </li>
@@ -33,7 +37,7 @@
           <Botonpdf/>
           <Modaleft/>
           <Botonpdf/>
-          <Modalgrafico/>
+          <Modalright/>
         </div>
         <ul className="box-info">
           <li>
@@ -60,7 +64,7 @@
           <Botonpdf/>
           <Modaleft/>
           <Botonpdf/>
-          <Modalgrafico/>
+          <Modalright/>
         </div>
       </main>
     );
