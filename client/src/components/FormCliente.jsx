@@ -1,13 +1,27 @@
 import { Input } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 import React from "react";
+import { useEffect, useState } from "react";
+import { Button } from "@nextui-org/react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema } from "../schema/userSchema";
 
 import { postClient } from "../api/client.api";
+import { getClient } from "../api/client.api";
 
 export function FormCliente() {
+  const [clients, setClient] = useState([]);
+  useEffect(() => {
+    async function loadClient() {
+      const response = await getClient();
+      setClient(response.data);
+      return response;
+    }
+
+    loadClient();
+  }, []);
+
   const { register, handleSubmit } = useForm({
     resolver: zodResolver(userSchema),
   });
@@ -39,17 +53,6 @@ export function FormCliente() {
     return regexT(nombre) ? false : true;
   }, [nombre]);
 
-  //   const validNombre = (() => {
-  //     if (nombre === "") {
-  //       return false;
-  //     }
-  //     if (regexT(nombre)) return false;
-
-  //     if (nombre === " ") return console.log(errors);
-
-  //     return true;
-  //   })();
-
   const validApelldio = React.useMemo(() => {
     if (apellido === "") return false;
     return regexT(apellido) ? false : true;
@@ -80,6 +83,7 @@ export function FormCliente() {
       <div className="flex gap-2">
         <Input
           {...register("nombre", { required: true })}
+          value={clients.nombre}
           type="text"
           label="Nombre"
           className="max-w-xs"
@@ -161,9 +165,9 @@ export function FormCliente() {
           onValueChange={setDireccion}
         />
       </div>
-      <button type="submit" className="text-">
+      <Button type="submit" color="primary">
         Registrar
-      </button>
+      </Button>
     </form>
   );
 }

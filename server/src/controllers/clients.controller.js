@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 export const getClients = async (req, res) => {
   try {
     const [rows] = await pool.query(
-      "SELECT * FROM clientes ORDER BY id_cliente DESC ; "
+      "SELECT *, CONCAT(nombre, ' ', apellido) AS nombre_completo FROM clientes ORDER BY id_cliente DESC; "
     );
     res.json(rows);
   } catch (error) {

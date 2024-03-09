@@ -5,6 +5,7 @@ import Siderbar from "./components/Siderbar";
 
 import Clients from "../src/pages/Clients.jsx";
 import Analisis from "./pages/Analisis";
+import FormActualizar from "./components/FormActualizar.jsx";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,15 @@ const router = createBrowserRouter([
     element: <Clients />,
   },
   {
+    path: "clientes/:id",
+    element: <FormActualizar />,
+  },
+  {
     path: "/analisis",
+    element: <Analisis />,
+  },
+  {
+    path: "*",
     element: <Analisis />,
   },
 ]);

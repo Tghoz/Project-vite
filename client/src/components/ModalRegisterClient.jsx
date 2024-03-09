@@ -18,11 +18,11 @@ export default function ModalRegisterClient() {
         onClick={onOpen}
         variant="flat"
         className="capitalize"
-        color="success">
+        color="warning">
         <FaUserGear size={20} />
-        wasa
+        Nuevo Cliente
       </Button>
-      <Modal size={"2xl"} isOpen={isOpen} onClose={onClose}>
+      <Modal size={"xl"} isOpen={isOpen} onClose={onClose}>
         <ModalContent>
           {(onClose) => (
             <>
@@ -35,9 +35,6 @@ export default function ModalRegisterClient() {
               <ModalFooter>
                 <Button color="danger" variant="light" onClick={onClose}>
                   Cancelar
-                </Button>
-                <Button color="primary" type="submit">
-                  Guardar
                 </Button>
               </ModalFooter>
             </>

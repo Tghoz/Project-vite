@@ -1,13 +1,19 @@
 import ModalRegisterClient from "../components/ModalRegisterClient";
-import ModalUser from "../components/ModalUser";
 import "../css/Pages.css";
 import { VscArrowRight } from "react-icons/vsc";
 import { HiUserGroup } from "react-icons/hi";
 import { GrUserExpert } from "react-icons/gr";
 import { useEffect, useState } from "react";
 import { getClient } from "../api/client.api";
+import { deleteClient } from "../api/client.api";
+import { Button } from "@nextui-org/react";
+import { RiDeleteBin2Fill } from "react-icons/ri";
+import { FaUserGear } from "react-icons/fa6";
+
+import { useNavigate } from "react-router-dom";
 
 function Clients() {
+  const navigate = useNavigate();
   const [clients, setClient] = useState([]);
 
   useEffect(() => {
@@ -19,6 +25,15 @@ function Clients() {
 
     loadClient();
   }, []);
+
+  const clicDelete = async (id) => {
+    try {
+      await deleteClient(id);
+      window.location.reload();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <main>
@@ -84,12 +99,29 @@ function Clients() {
             <tbody>
               {clients.map((client) => (
                 <tr key={client.id_cliente}>
-                  <td> {client.nombre}</td>
+                  <td> {client.nombre_completo}</td>
                   <td> {client.tipo_cliente}</td>
                   <td> {client.documento_identidad}</td>
                   <td> {client.direccion}</td>
                   <td>
-                    <ModalUser />
+                    <Button
+                      onClick={() => navigate(`/clientes/${client.id_cliente}`)}
+                      variant="flat"
+                      className="capitalize"
+                      color="success">
+                      <FaUserGear size={20} />
+                      Editar
+                    </Button>
+                  </td>
+                  <td>
+                    <Button
+                      onClick={() => clicDelete(client.id_cliente)}
+                      variant="flat"
+                      className="capitalize"
+                      color="secondary">
+                      <RiDeleteBin2Fill size={20} />
+                      Borrar{" "}
+                    </Button>
                   </td>
                 </tr>
               ))}

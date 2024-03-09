@@ -1,13 +1,10 @@
 import { FaEdit } from "react-icons/fa";
 import "../css/Pages.css";
 
-import {
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
+import { Button, useDisclosure } from "@nextui-org/react";
 
 export default function App() {
-  const {  onOpen} = useDisclosure();
+  const { onOpen } = useDisclosure();
 
   const Formulario = () => {
     return (
@@ -16,9 +13,10 @@ export default function App() {
           onClick={onOpen}
           variant="flat"
           className="capitalize"
-          color="secondary"  >
+          color="secondary">
           <FaEdit size={20} />
-Editar        </Button>
+          Editar{" "}
+        </Button>
       </div>
     );
   };
