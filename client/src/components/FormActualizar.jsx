@@ -9,9 +9,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getClientId, updateClient } from "../api/client.api";
 
-
-
-
 export default function FormActualizar() {
   const navigate = useNavigate();
 
