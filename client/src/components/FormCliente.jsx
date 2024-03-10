@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import React from "react";
 import { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema } from "../schema/userSchema";
@@ -99,13 +100,10 @@ export function FormCliente() {
           isInvalid={validApelldio}
           onValueChange={setApelldio}
         />
-        <select
-          className="outline-none border-0  text-default-900 text-small"
-          label="Genero"
-          {...register("genero")}>
-          <option value="masculino">Masculino</option>
-          <option value="femenino">Femenino</option>
-        </select>
+        <Select className="max-w-xs" {...register("genero")} label="Genero">
+          <SelectItem>Femenino</SelectItem>
+          <SelectItem>Masculino</SelectItem>
+        </Select>
       </div>
       <div className="flex gap-2">
         <Input

@@ -6,7 +6,7 @@ export const userSchema = z.object({
 
     apellido: z.string().regex(new RegExp(/^[a-zA-Z]+[-'s]?[a-zA-Z ]+$/)),
 
-    genero: z.enum([ "masculino","femenino"]),
+  
 
     documento_identidad: z.string().min(7).regex(new RegExp(/^[0-9]+$/)),
 

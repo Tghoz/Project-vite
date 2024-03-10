@@ -27,7 +27,7 @@ export default function FormActualizar() {
     }
     loadClient();
   }, [param.id]);
-  console.log();
+
 
   const { register, handleSubmit } = useForm();
 
