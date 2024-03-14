@@ -38,21 +38,29 @@ export const postClient = async (req, res) => {
     apellido,
     direccion,
     documento_identidad,
-    tipo_cliente,
     contacto,
     email,
+    fecha_nacimiento,
+    genero,
+    tipo,
+    estado,
+    relacion,
   } = req.body;
   try {
     const [rows] = await pool.query(
-      "INSERT INTO clientes( nombre, apellido, direccion, documento_identidad, tipo_cliente, contacto, email ) VALUES (?, ?, ?, ?, ?, ?, ?);",
+      "INSERT INTO clientes( nombre, apellido,direccion, documento_identidad, contacto, email, fecha_nacimiento,genero, tipo, estado, relacion ) VALUES (?,?,?,?,?,?,?,?,?,?,?);",
       [
         nombre,
         apellido,
         direccion,
         documento_identidad,
-        tipo_cliente,
         contacto,
         email,
+        fecha_nacimiento,
+        genero,
+        tipo,
+        estado,
+        relacion,
       ]
     );
     res.json({
@@ -61,9 +69,13 @@ export const postClient = async (req, res) => {
       apellido,
       direccion,
       documento_identidad,
-      tipo_cliente,
       contacto,
       email,
+      fecha_nacimiento,
+      genero,
+      tipo,
+      estado,
+      relacion,
     });
   } catch (error) {
     return res.status(500).json({

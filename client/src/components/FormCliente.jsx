@@ -1,28 +1,12 @@
-import { Input } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 import React from "react";
-import { useEffect, useState } from "react";
-import { Button } from "@nextui-org/react";
-import { Select, SelectItem } from "@nextui-org/react";
-
+import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 import { zodResolver } from "@hookform/resolvers/zod";
+////
 import { userSchema } from "../schema/userSchema";
-
 import { postClient } from "../api/client.api";
-import { getClient } from "../api/client.api";
 
 export function FormCliente() {
-  const [clients, setClient] = useState([]);
-  useEffect(() => {
-    async function loadClient() {
-      const response = await getClient();
-      setClient(response.data);
-      return response;
-    }
-
-    loadClient();
-  }, []);
-
   const { register, handleSubmit } = useForm({
     resolver: zodResolver(userSchema),
   });
@@ -31,8 +15,10 @@ export function FormCliente() {
     try {
       await postClient(data);
       window.location.reload();
+      alert("fino compa");
     } catch (error) {
       console.error(error);
+      alert("no furula paito");
     }
   });
 
@@ -84,7 +70,6 @@ export function FormCliente() {
       <div className="flex gap-2">
         <Input
           {...register("nombre", { required: true })}
-          value={clients.nombre}
           type="text"
           label="Nombre"
           className="max-w-xs"

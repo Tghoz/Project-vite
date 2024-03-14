@@ -232,8 +232,9 @@ INSERT INTO
 VALUES ('Completo'),
     ('Pendiente');
 
+use dbmb
 
-
+ALTER TABLE clientes MODIFY COLUMN dirección  DROP NOT NULL;
 
 
 INSERT INTO 
