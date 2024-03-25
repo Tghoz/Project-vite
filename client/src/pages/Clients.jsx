@@ -100,7 +100,9 @@ function Clients() {
               {clients.map((client) => (
                 <tr key={client.id_cliente}>
                   <td> {client.nombre_completo}</td>
-                  <td> {client.tipo_cliente}</td>
+                  <td>
+                    {client.tipo === 1 ? "C.I" : client.tipo === 2 ? "RIF" : ""}
+                  </td>
                   <td> {client.documento_identidad}</td>
                   <td> {client.direccion}</td>
                   <td>

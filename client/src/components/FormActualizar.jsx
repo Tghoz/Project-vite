@@ -19,15 +19,13 @@ export default function FormActualizar() {
     async function loadClient() {
       try {
         const response = await getClientId(param.id);
-        setClientData(response); // Almacena la respuesta en el estado clientData
-        // console.log(response.data);
+        setClientData(response);
       } catch (error) {
         console.error("Error al cargar datos del cliente:", error);
       }
     }
     loadClient();
   }, [param.id]);
-
 
   const { register, handleSubmit } = useForm();
 
@@ -64,10 +62,10 @@ export default function FormActualizar() {
             <select
               className="outline-none border-0  text-default-900 text-small"
               label="Genero"
-              defaultValue={clientData.data.fecha_nacimiento}
+              defaultValue={clientData.data.genero}
               {...register("genero")}>
-              <option value="masculino">Masculino</option>
-              <option value="femenino">Femenino</option>
+              <option value="2">Masculino</option>
+              <option value="1">Femenino</option>
             </select>
           </div>
           <div className="flex gap-2">
@@ -87,8 +85,8 @@ export default function FormActualizar() {
                     id="currency"
                     name="currency"
                     defaultValue={clientData.data.tipo_cliente}>
-                    <option>C.I</option>
-                    <option>RIF</option>
+                    <option value="1">C.I</option>
+                    <option value="2">RIF</option>
                   </select>
                 </div>
               }

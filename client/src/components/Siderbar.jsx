@@ -4,7 +4,13 @@ import { useEffect } from "react";
 import { BsPeopleFill } from "react-icons/bs";
 import { SiGoogleanalytics } from "react-icons/si";
 
+
 function Siderbar() {
+
+
+
+
+
   useEffect(() => {
     const allSideMenu = document.querySelectorAll(
       "#sidebar .side-menu.top li a"

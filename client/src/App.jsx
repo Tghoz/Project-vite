@@ -5,6 +5,7 @@ import Siderbar from "./components/Siderbar";
 
 import Clients from "../src/pages/Clients.jsx";
 import Analisis from "./pages/Analisis";
+import NotFound from "./pages/NotFound.jsx";
 import FormActualizar from "./components/FormActualizar.jsx";
 
 const router = createBrowserRouter([
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <Analisis />,
+    element: <NotFound />,
   },
 ]);
 
