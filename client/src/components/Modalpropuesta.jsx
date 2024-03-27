@@ -1,5 +1,8 @@
 import { RiFileAddFill } from "react-icons/ri";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+
+import { CheckboxGroup, Checkbox } from "@nextui-org/react";
+
 import {
   Modal,
   ModalContent,
@@ -10,15 +13,22 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/react";
 
 export default function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { register, control, handleSubmit } = useForm();
 
-  const { register, handleSubmit } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      await postPropuesta(data);
+      window.location.reload();
+      alert("fino compa");
+    } catch (error) {
+      console.error(error);
+      alert(error);
+    }
+  });
 
   return (
     <div className="">
@@ -35,7 +45,7 @@ export default function App() {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                Registro de la propuesta
+                Registro de Cliente
               </ModalHeader>
               <ModalBody>
                 <form
@@ -45,28 +55,85 @@ export default function App() {
                   className="flex flex-col gap-4">
                   <div className="flex gap-2">
                     <Input
-                      type=""
-                      {...register("nombredelapropuesta")}
-                      label="Nombre de la propuesta"
+                      type="nombre"
+                      {...register("nombre")}
+                      label="Nombre"
                       className="max-w-xs"
                     />
                     <Input
-                      type=""
-                      {...register("Destinodelapropuesta")}
-                      label="Destino de la propuesta"
+                      type="apellido"
+                      {...register("Apellido")}
+                      label="Apellido"
                       className="max-w-xs"
                     />
-                    
+                    <Select
+                      className="max-w-xs"
+                      {...register("genero")}
+                      label="Genero">
+                      <SelectItem>Femenino</SelectItem>
+                      <SelectItem>Masculino</SelectItem>
+                    </Select>
                   </div>
-                  <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                    <label htmlFor="fecha">Fecha de creación</label>
-                    <Input type="date" {...register("fechadepropuesta")} />
-                  </div>
-                  <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+                  <div className="flex gap-2">
                     <Input
+                      label="Documento de Identidad"
+                      {...register("Documento de identidad")}
+                      placeholder="27797609"
+                      labelPlacement="outside"
+                      startContent={
+                        <div className="flex items-center">
+                          <label className="sr-only" htmlFor="currency">
+                            Tipo
+                          </label>
+                          <select
+                            className="outline-none border-0 bg-transparent text-default-400 text-small"
+                            id="currency"
+                            name="currency">
+                            <option>C.I</option>
+                            <option>RIF</option>
+                          </select>
+                        </div>
+                      }
                       type="text"
-                      label="Correo electrónico"
-                      {...register("email")}
+                    />
+                    <Input
+                      label="Numero de Contacto"
+                      {...register("Numero")}
+                      placeholder="0424-2358145"
+                      labelPlacement="outside"
+                      startContent={
+                        <div className="flex items-center">
+                          <label className="sr-only" htmlFor="currency">
+                            idk
+                          </label>
+                        </div>
+                      }
+                      type="text"
+                    />
+                  </div>
+                  <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+                    <Input type="date" {...register("fecha de nacimiento")} />
+                  </div>
+                  <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+                    <Input
+                      type="number"
+                      {...register("precio_niños")}
+                      label="Precio Niños"
+                      labelPlacement="outside"
+                      defaultValue="0.00"
+                      endContent={
+                        <div className="pointer-events-none flex items-center">
+                          <span className="text-default-400 text-small">$</span>
+                        </div>
+                      }
+                    />
+                  </div>
+                  <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+                    <Input
+                      type="texto"
+                      {...register("dirrecion")}
+                      label="Dirección"
+                      description="Zona de Residencia actual"
                     />
                   </div>
                   <ModalFooter>

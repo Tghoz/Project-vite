@@ -1,4 +1,3 @@
-
 import Chart from "../components/Chart";
 import Modalright from "../components/Modalright";
 import Modaleft from "../components/Modaleft";

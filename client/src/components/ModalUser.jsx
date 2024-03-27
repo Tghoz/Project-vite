@@ -22,14 +22,13 @@ export default function App() {
         className="capitalize"
         color="success">
         <FaUserGear size={20} />
-        wasa
       </Button>
       <Modal size={"2xl"} isOpen={isOpen} onClose={onClose}>
         <ModalContent>
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                Registro de Cliente
+                Modal user
               </ModalHeader>
               <ModalBody>
                 <FormCliente />

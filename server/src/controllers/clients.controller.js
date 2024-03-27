@@ -106,28 +106,12 @@ export const deleteClient = async (req, res) => {
 
 export const updateClient = async (req, res) => {
   const { id } = req.params;
-  const {
-    nombre,
-    apellido,
-    direccion,
-    documento_identidad,
-    tipo_cliente,
-    contacto,
-    email,
-  } = req.body;
+  const { nombre, apellido, direccion, documento_identidad, contacto, email } =
+    req.body;
   try {
     const [result] = await pool.query(
-      "UPDATE clientes SET nombre = IFNULL(?, nombre), apellido = IFNULL(?, apellido), direccion =IFNULL(?,direccion), documento_identidad = IFNULL(?, documento_identidad), tipo_cliente =IFNULL(?, tipo_cliente), contacto = IFNULL(?, contacto), email =IFNULL(?, email) WHERE id_cliente = ?",
-      [
-        nombre,
-        apellido,
-        direccion,
-        documento_identidad,
-        tipo_cliente,
-        contacto,
-        email,
-        id,
-      ]
+      "UPDATE clientes SET nombre = IFNULL(?, nombre), apellido = IFNULL(?, apellido), direccion = IFNULL(?, direccion), documento_identidad = IFNULL(?, documento_identidad), contacto = IFNULL(?, contacto), email = IFNULL(?, email) WHERE id_cliente = ?",
+      [nombre, apellido, direccion, documento_identidad, contacto, email, id]
     );
 
     const [rows] = await pool.query(

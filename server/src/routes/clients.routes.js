@@ -24,4 +24,7 @@ router.patch("/client/:id", updateClient);
 // !DELETE
 router.delete("/client/:id", deleteClient);
 
+
+
+
 export default router;

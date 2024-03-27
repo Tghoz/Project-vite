@@ -1,17 +1,50 @@
 import { useForm } from "react-hook-form";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 ////
 import { userSchema } from "../schema/userSchema";
 import { postClient } from "../api/client.api";
+import { getGeneros } from "../api/generos";
 
 export function FormCliente() {
+  const [fecha, setFecha] = useState("");
+
+  const handleDateChange = (event) => {
+    setFecha(event.target.value);
+  };
+
+  const formatDate = (date) => {
+    if (!date) return "";
+
+    const parts = date.split("-");
+    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+  };
+
+  const [genero, setGenero] = useState([]);
+
+  useEffect(() => {
+    async function loadClient() {
+      const response = await getGeneros();
+      setGenero(response.data);
+      return response;
+    }
+
+    const delay = 1000;
+    const waitGeneros = async () => {
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    };
+
+    waitGeneros();
+    loadClient();
+  }, []);
+
   const { register, handleSubmit } = useForm({
     resolver: zodResolver(userSchema),
   });
 
   const onSubmit = handleSubmit(async (data) => {
+    console.log(data)
     try {
       await postClient(data);
       window.location.reload();
@@ -86,8 +119,9 @@ export function FormCliente() {
           onValueChange={setApelldio}
         />
         <Select className="max-w-xs" {...register("genero")} label="Genero">
-          <SelectItem>Femenino</SelectItem>
-          <SelectItem>Masculino</SelectItem>
+          {genero.map((genero) => (
+            <SelectItem key={genero.id_genero}>{genero.genero}</SelectItem>
+          ))}
         </Select>
       </div>
       <div className="flex gap-2">
@@ -105,8 +139,9 @@ export function FormCliente() {
                 id="currency"
                 name="currency"
                 {...register("tipo_cliente")}>
-                <option>C.I</option>
-                <option>RIF</option>
+                {genero.map((genero) => (
+                  <option key={genero.id_tipo}>{genero.tipo}</option>
+                ))}
               </select>
             </div>
           }
@@ -127,7 +162,12 @@ export function FormCliente() {
       </div>
       <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
         <label htmlFor="fecha">Fecha Nacimiento</label>
-        <Input type="date" {...register("fecha")} />
+        <Input
+          type="date"
+          value={formatDate(fecha)}
+          onChange={handleDateChange}
+          {...register("fecha")}
+        />
       </div>
       <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
         <Input
@@ -143,7 +183,6 @@ export function FormCliente() {
           {...register("direccion")}
           type="texto"
           label="Dirección"
-          description="Zona de Residencia actual"
           isInvalid={validDireccion}
           onValueChange={setDireccion}
         />
