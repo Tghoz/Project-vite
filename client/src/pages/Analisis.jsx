@@ -1,5 +1,4 @@
 import Chart from "../components/Chart";
-import Modalright from "../components/Modalright";
 import Modaleft from "../components/Modaleft";
 import Modalpropuesta from "../components/Modalpropuesta";
 import Botonpdf from "../components/Botonpdf";
@@ -46,7 +45,8 @@ function Analisis() {
         <Botonpdf onClick={handlePDFGeneration} />
         <Modaleft />
         <Botonpdf />
-        <Modalright />
+        <Modaleft />
+
       </div>
       <ul className="box-info">
         <li>
@@ -72,7 +72,7 @@ function Analisis() {
         <Botonpdf onClick={handlePDFGeneration} />
         <Modaleft />
         <Botonpdf />
-        <Modalright />
+        <Modaleft />
       </div>
     </main>
   );

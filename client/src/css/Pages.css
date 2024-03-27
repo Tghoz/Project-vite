@@ -217,8 +217,8 @@ arrow-icon {
       .modal-container {
         display: flex;
         justify-content: space-between;
-        margin-top: 8px;
-        margin-left:0px ;  
+        margin-top: 6px;
+        margin-left:30px ;  
         
       }
       .boton-editar {
