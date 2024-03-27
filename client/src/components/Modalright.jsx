@@ -1,9 +1,7 @@
 import { IoMdAddCircle } from "react-icons/io";
 import { useForm } from "react-hook-form";
-import Botoneditar from "./Botoneditar";
-import Botonborrar from "./Botonborrar";
-
-
+import Botoneditar from "../components/Botoneditar";
+import Botonborrar from "../components/Botonborrar";
 import "../css/Pages.css";
 
 import {
@@ -14,6 +12,8 @@ import {
   ModalFooter,
   Button,
   useDisclosure,
+  Select,
+
 } from "@nextui-org/react";
 
 export default function App() {
@@ -27,7 +27,7 @@ export default function App() {
     };
 
     return (
-      <div className="flex justify-end items-center">
+      <div className="">
         <Button
           onClick={onOpen}
           variant="flat"
@@ -43,18 +43,21 @@ export default function App() {
                 <ModalHeader className="flex flex-col gap-1">
                 Gestor de Datos
                 </ModalHeader>
-                <div className="boton-editar">
-                <Botoneditar/>
-                </div>
-                <div className="boton-borrar">
-                <Botonborrar/>
-                </div>
                 <ModalBody>
                   <form
                     onSubmit={handleSubmit(onSubmit)}
                     action=""
                     method="post"
                     className="flex flex-col gap-4" >
+                      <Select className="max-w-xs"label="Seleccionar Propuesta">
+                         
+                  </Select>
+                  <div className="boton-editar">
+                    <Botoneditar/>
+                   </div>
+                <div className="boton-borrar">
+                 <Botonborrar/>
+                </div>
                     <ModalFooter>
                       <Button color="danger" variant="light" onClick={onClose}>
                         Cancelar
