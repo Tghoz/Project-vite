@@ -1,27 +1,36 @@
 import { BiSolidDownload } from "react-icons/bi";
 import "../css/Pages.css";
+import { Button,  } from "@nextui-org/react";
+import { jsPDF } from "jspdf";
 
-import {
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
+export default function Botonpdf() {
 
-export default function App() {
-  const {  onOpen} = useDisclosure();
+  const handlePDFGeneration = () => {
+    const doc = new jsPDF();
+    const charts = document.querySelectorAll("canvas");
 
-  const Formulario = () => {
-    return (
-      <div className="">
-        <Button
-          onClick={onOpen}
-          variant="flat"
-          className="capitalize"
-          color="warning"  >
-          <BiSolidDownload size={20} />
-         Guardar PDF
-        </Button>
-      </div>
-    );
+    charts.forEach((chart, index) => {
+      if (index !== 0) {
+        doc.addPage();
+      }
+      const imgData = chart.toDataURL("image/png");
+      doc.addImage(imgData, "PNG", 10, 10, 180, 100);
+    });
+
+    doc.save("analisis.pdf");
   };
-  return <Formulario />;
+
+  return (
+    <div className="">
+      <Button
+        onClick={handlePDFGeneration}
+        variant="flat"
+        className="capitalize"
+        color="secondary"
+      >
+        <BiSolidDownload size={20} />
+        Guardar PDF
+      </Button>
+    </div>
+  );
 }

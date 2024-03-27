@@ -32,17 +32,21 @@ export default function App() {
           className="capitalize"
           color="success"  >
           <IoMdAddCircle size={20} />
-         wasa
+          Gestor de Datos
         </Button>
         <Modal size={"2xl"} isOpen={isOpen} onClose={onClose}>
           <ModalContent>
             {(onClose) => (
               <>
                 <ModalHeader className="flex flex-col gap-1">
-                  Registro de Cliente
+                Gestor de Datos
                 </ModalHeader>
+                <div className="boton-editar">
                 <Botoneditar/>
+                </div>
+                <div className="boton-borrar">
                 <Botonborrar/>
+                </div>
                 <ModalBody>
                   <form
                     onSubmit={handleSubmit(onSubmit)}

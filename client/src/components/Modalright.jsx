@@ -1,7 +1,7 @@
 import { IoMdAddCircle } from "react-icons/io";
 import { useForm } from "react-hook-form";
-import Botoneditar from "../components/Botoneditar";
-import Botonborrar from "../components/Botonborrar";
+import Botoneditar from "./Botoneditar";
+import Botonborrar from "./Botonborrar";
 
 
 import "../css/Pages.css";
@@ -34,17 +34,21 @@ export default function App() {
           className="capitalize"
           color="success"  >
           <IoMdAddCircle size={20} />
-          wasa
+          Gestor de Datos
         </Button>
         <Modal size={"2xl"} isOpen={isOpen} onClose={onClose}>
           <ModalContent>
             {(onClose) => (
               <>
                 <ModalHeader className="flex flex-col gap-1">
-                  Registro de Cliente
+                Gestor de Datos
                 </ModalHeader>
+                <div className="boton-editar">
                 <Botoneditar/>
-                      <Botonborrar/>
+                </div>
+                <div className="boton-borrar">
+                <Botonborrar/>
+                </div>
                 <ModalBody>
                   <form
                     onSubmit={handleSubmit(onSubmit)}

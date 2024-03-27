@@ -10,7 +10,6 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
-import { Select, SelectItem } from "@nextui-org/react";
 
 export default function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,7 +26,7 @@ export default function App() {
         onClick={onOpen}
         variant="flat"
         className="capitalize"
-        color="default">
+        color="warning">
         <RiFileAddFill size={30} />
         Registrar Propuestas
       </Button>
@@ -36,7 +35,7 @@ export default function App() {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                Registro de Cliente
+                Registro de la propuesta
               </ModalHeader>
               <ModalBody>
                 <form
@@ -46,78 +45,28 @@ export default function App() {
                   className="flex flex-col gap-4">
                   <div className="flex gap-2">
                     <Input
-                      type="nombre"
-                      {...register("nombre")}
-                      label="Nombre"
+                      type=""
+                      {...register("nombredelapropuesta")}
+                      label="Nombre de la propuesta"
                       className="max-w-xs"
                     />
                     <Input
-                      type="apellido"
-                      {...register("Apellido")}
-                      label="Apellido"
+                      type=""
+                      {...register("Destinodelapropuesta")}
+                      label="Destino de la propuesta"
                       className="max-w-xs"
                     />
-                    <Select
-                      className="max-w-xs"
-                      {...register("genero")}
-                      label="Genero">
-                      <SelectItem>Femenino</SelectItem>
-                      <SelectItem>Masculino</SelectItem>
-                    </Select>
-                  </div>
-                  <div className="flex gap-2">
-                    <Input
-                      label="Documento de Identidad"
-                      {...register("Documento de identidad")}
-                      placeholder="27797609"
-                      labelPlacement="outside"
-                      startContent={
-                        <div className="flex items-center">
-                          <label className="sr-only" htmlFor="currency">
-                            Tipo
-                          </label>
-                          <select
-                            className="outline-none border-0 bg-transparent text-default-400 text-small"
-                            id="currency"
-                            name="currency">
-                            <option>C.I</option>
-                            <option>RIF</option>
-                          </select>
-                        </div>
-                      }
-                      type="text"
-                    />
-                    <Input
-                      label="Numero de Contacto"
-                      {...register("Numero")}
-                      placeholder="0424-2358145"
-                      labelPlacement="outside"
-                      startContent={
-                        <div className="flex items-center">
-                          <label className="sr-only" htmlFor="currency">
-                            idk
-                          </label>
-                        </div>
-                      }
-                      type="text"
-                    />
+                    
                   </div>
                   <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                    <Input type="date" {...register("fecha de nacimiento")} />
+                    <label htmlFor="fecha">Fecha de creación</label>
+                    <Input type="date" {...register("fechadepropuesta")} />
                   </div>
                   <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                     <Input
                       type="text"
                       label="Correo electrónico"
                       {...register("email")}
-                    />
-                  </div>
-                  <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                    <Input
-                      type="texto"
-                      {...register("dirrecion")}
-                      label="Dirección"
-                      description="Zona de Residencia actual"
                     />
                   </div>
                   <ModalFooter>
