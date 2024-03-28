@@ -44,7 +44,6 @@ export function FormCliente() {
   });
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data)
     try {
       await postClient(data);
       window.location.reload();

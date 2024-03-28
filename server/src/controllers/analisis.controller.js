@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 export const getPropuesta = async (req, res) => {
   try {
     const [rows] = await pool.query(
-      "SELECT * FROM detalle_propuesta ORDER BY id_detalles  DESC LIMIT 3;"
+      "SELECT * FROM propuestas ORDER BY id_propuesta  DESC LIMIT 3;"
     );
     res.json(rows);
   } catch (error) {
@@ -16,7 +16,7 @@ export const getPropuesta = async (req, res) => {
 export const getPropuestaByID = async (req, res) => {
   try {
     const [rows] = await pool.query(
-      "SELECT * FROM detalle_propuesta WHERE id_propuesta = ?",
+      "SELECT * FROM propuestas WHERE id_propuesta = ?",
       [req.params.id]
     );
 
@@ -33,49 +33,56 @@ export const getPropuestaByID = async (req, res) => {
 };
 
 export const postPropuesta = async (req, res) => {
-  const {
-    destino,
-    trasporte,
-    precio_adulto,
-    precio_niños,
-    precio_ancianos,
-    inc_desayuno,
-    inc_almuerzo,
-    inc_cena,
-    inc_bebida,
-    inc_alcohol,
-  } = req.body;
+  const { fecha_creacion, destino, nombre } = req.body;
 
   try {
     const [rows] = await pool.query(
-      "INSERT INTO detalle_propuesta (destino ,trasporte, precio_niños, precio_adulto ,precio_ancianos, inc_desayuno, inc_almuerzo, inc_cena, inc_bebida, inc_alcohol) VALUES (?,?,?,?,?,?,?,?,?,?);",
-      [
-        destino,
-        trasporte,
-        precio_adulto,
-        precio_niños,
-        precio_ancianos,
-        inc_desayuno,
-        inc_almuerzo,
-        inc_cena,
-        inc_bebida,
-        inc_alcohol,
-      ]
+      "INSERT INTO propuestas (fecha_creacion,destino ,nombre) VALUES (? , ? , ?);",
+      [fecha_creacion, destino, nombre]
     );
 
     res.json({
       id: rows.insertId,
+      fecha_creacion,
       destino,
-      trasporte,
-      precio_adulto,
-      precio_niños,
-      precio_ancianos,
-      inc_desayuno,
-      inc_almuerzo,
-      inc_cena,
-      inc_bebida,
-      inc_alcohol,
+      nombre,
     });
+  } catch (error) {
+    return res.status(500).json({
+      message: `${error}`,
+    });
+  }
+};
+
+export const postPublicacion = async (req, res) => {
+  const { id_propuesta, id_red, tipo, metrica } = req.body;
+
+  try {
+    const [rows] = await pool.query(
+      "INSERT INTO publicaciones (id_propuesta, id_red ,tipo, metrica ) VALUES (? , ? , ?,?);",
+      [id_propuesta, id_red, tipo, metrica]
+    );
+
+    res.json({
+      id: rows.insertId,
+      id_propuesta,
+      id_red,
+      tipo,
+      metrica,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: `${error}`,
+    });
+  }
+};
+
+export const getPublicacion = async (req, res) => {
+  try {
+    const [rows] = await pool.query(
+      "SELECT a.*,b.nombre FROM publicaciones a INNER join propuestas b on a.id_propuesta=b.id_propuesta ORDER BY id_publicacion  DESC  LIMIT 3;"
+    );
+    res.json(rows);
   } catch (error) {
     return res.status(500).json({
       message: `${error}`,
@@ -85,7 +92,7 @@ export const postPropuesta = async (req, res) => {
 
 export const getRedes = async (req, res) => {
   try {
-    const [rows] = await pool.query("SELECT * FROM inteacciones_redes ;");
+    const [rows] = await pool.query("SELECT * FROM inteacciones_redes;");
     res.json(rows);
   } catch (error) {
     return res.status(500).json({
