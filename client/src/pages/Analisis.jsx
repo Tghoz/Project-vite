@@ -43,7 +43,7 @@ function Analisis() {
     loadPropuestas();
   }, []);
 
-  console.log(metricas);
+
 
   return (
     <main>
